@@ -41,6 +41,5 @@ def deletar_filme(id):
     filmes = [f for f in filmes if f["id"] != id]
     return jsonify({"mensagem": "Filme deletado"})
 
-if __name__ == "__main__":
-    # Importante: 0.0.0.0 para acesso externo no container
-    app.run(host="0.0.0.0", port=5000, debug=True)
+if _name_ == '_main_':
+    app.run(host='0.0.0.0', port=5000)
