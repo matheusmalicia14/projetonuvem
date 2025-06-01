@@ -1,11 +1,14 @@
-# Imagem base do Nginx
-FROM nginx:alpine
+# Imagem base com Python
+FROM python:3.11-slim
 
-# Remove o conteúdo padrão do Nginx
-RUN rm -rf /usr/share/nginx/html/*
+# Define o diretório de trabalho
+WORKDIR /app
 
-# Copia os arquivos do frontend para o Nginx
-COPY . /usr/share/nginx/html
+# Copia os arquivos do frontend para o contêiner
+COPY . /app
 
-# Expõe a porta 80
+# Expõe a porta 8080
 EXPOSE 8080
+
+# Inicia um servidor HTTP simples
+CMD ["python", "-m", "http.server", "8080"]
