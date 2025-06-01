@@ -1,4 +1,4 @@
-const API = 'http://18.207.209.242:5000/api/filmes';
+const API = 'http://54.172.136.173:5000/api/filmes';
 
 async function carregarFilmes() {
     const res = await fetch(API);
