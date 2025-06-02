@@ -1,17 +1,13 @@
-# Imagem base com Python
 FROM python:3.11-slim
 
-# Define diretório de trabalho
 WORKDIR /app
 
-# Copia os arquivos do backend
-COPY . /app
+COPY . .
 
-# Instala dependências
-RUN pip install flask flask-cors
+# Instala as dependências do PostgreSQL e as bibliotecas Python
+RUN apt-get update && apt-get install -y gcc libpq-dev && \
+    pip install flask flask-cors psycopg2-binary
 
-# Expõe a porta padrão do Flask
 EXPOSE 5000
 
-# Comando para iniciar o servidor Flask
 CMD ["python", "app.py"]
